@@ -1,0 +1,25 @@
+package br.com.etechoracio.academia.service;
+
+import br.com.etechoracio.academia.dto.ExercicioFisicoResponseDTO;
+import br.com.etechoracio.academia.entity.ExercicioFisico;
+import br.com.etechoracio.academia.mapper.ExercicioFisicoMapper;
+import br.com.etechoracio.academia.repository.ExercicioFisicoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ExercicioFisicoService {
+    @Autowired
+    private ExercicioFisicoRepository exercicioFisicoRepository;
+
+    @Autowired
+    private ExercicioFisicoMapper exercicioFisicoMapper;
+
+    public List<ExercicioFisicoResponseDTO> findAprovados(){
+        List<ExercicioFisico> exercicios = exercicioFisicoRepository.findAprovados();
+        return exercicioFisicoMapper.toResponseDTOList(exercicios);
+    }
+
+}

@@ -3,6 +3,7 @@ package br.com.etechoracio.academia.dto;
 import br.com.etechoracio.academia.enums.NivelDificuldadeEnum;
 
 public record ExercicioFisicoResponseDTO(
+        Long id,
         String nome,
         String grupoMuscular,
         String imagem,

@@ -1,5 +1,6 @@
 package br.com.etechoracio.academia.mapper;
 
+import br.com.etechoracio.academia.dto.ExercicioFisicoRequestDTO;
 import br.com.etechoracio.academia.dto.ExercicioFisicoResponseDTO;
 import br.com.etechoracio.academia.entity.ExercicioFisico;
 import br.com.etechoracio.academia.repository.ExercicioFisicoRepository;
@@ -13,4 +14,6 @@ public interface ExercicioFisicoMapper {
     List<ExercicioFisico> toResponseEntities(List<ExercicioFisicoResponseDTO> dtos);
 
     ExercicioFisicoResponseDTO toResponseDTO(ExercicioFisico entity);
+
+    ExercicioFisico toEntity(ExercicioFisicoRequestDTO dto);
 }

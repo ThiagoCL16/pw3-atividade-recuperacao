@@ -22,4 +22,13 @@ public class ExercicioFisicoService {
         return exercicioFisicoMapper.toResponseDTOList(exercicios);
     }
 
+    public ExercicioFisicoResponseDTO findPorId(Long id)
+    {
+        ExercicioFisico exercicio = exercicioFisicoRepository.findporId(id);
+        if(exercicio == null)
+            return null;
+        else
+            return exercicioFisicoMapper.toResponseDTO(exercicio);
+    }
+
 }

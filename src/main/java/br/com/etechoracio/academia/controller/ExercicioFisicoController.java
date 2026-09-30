@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.service.annotation.PatchExchange;
 
 import java.util.List;
 
@@ -41,6 +42,15 @@ public class ExercicioFisicoController {
         ExercicioFisicoResponseDTO exercicioSalvo = exercicioFisicoService.save(exercicioFisicoDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(exercicioSalvo);
+    }
+
+    @PatchMapping("/{id}/aprovar")
+    public ResponseEntity<ExercicioFisicoResponseDTO> aprovar(@PathVariable Long id) {
+        ExercicioFisicoResponseDTO exercicioDto = exercicioFisicoService.aprovar(id);
+        if (exercicioDto == null)
+            return ResponseEntity.notFound().build();
+        else
+            return ResponseEntity.ok(exercicioDto);
     }
 
 }
